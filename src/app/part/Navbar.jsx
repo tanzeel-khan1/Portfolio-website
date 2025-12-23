@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { MdOutlineEmail } from "react-icons/md";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -120,11 +121,37 @@ function Navbar() {
             <h2 className="text-xl font-semibold mb-4 text-blue-600 cursor-pointer">
               Contact Me
             </h2>
-            <p className="text-gray-700 flex items-center justify-center gap-2">
-              <MdOutlineEmail className="text-blue-600" /> Email:
-              tanzeel0680@gmail.com
+
+            <p className="text-gray-700 flex items-center justify-center gap-2 mb-2">
+              <MdOutlineEmail className="text-blue-600" />
+              Email: tanzeel0680@gmail.com
             </p>
-            <div className="mt-5 flex justify-center">
+
+            <p className="text-gray-700 flex items-center justify-center gap-2 mb-2">
+              <FaLinkedin className="text-blue-700" />
+              <a
+                href="https://www.linkedin.com/in/tanzeel-khan-60601b301/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                LinkedIn
+              </a>
+            </p>
+
+            <p className="text-gray-700 flex items-center justify-center gap-2 mb-4">
+              <FaGithub className="text-gray-800" />
+              <a
+                href="https://github.com/tanzeel-khan1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                GitHub
+              </a>
+            </p>
+
+            <div className="mt-2 flex justify-center">
               <button
                 onClick={() => setShowModal(false)}
                 className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
