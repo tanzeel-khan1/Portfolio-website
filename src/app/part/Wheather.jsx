@@ -22,10 +22,11 @@ const Wheather = () => {
 
         <div className="p-6 flex flex-col gap-3">
           <h2 className="text-2xl font-bold text-gray-800">Real Estate Website</h2>
-          <p className="text-gray-600 leading-relaxed">
-            This project is a demonstration of a fully responsive{" "}
-            just for portfolio presentation.
-          </p>
+         <p className="text-gray-600 leading-relaxed">
+  This project is a fully responsive portfolio demonstration, featuring
+  smooth animations and thoughtfully integrated icons to enhance user
+  experience and visual clarity.
+</p>
 
           <div className="mt-4 flex justify-between items-center">
             <a
@@ -38,7 +39,7 @@ const Wheather = () => {
             </a>
 
             <span className="bg-blue-100 text-blue-700 px-3 py-1 text-sm font-medium rounded-full">
-              React App
+              Next js
             </span>
           </div>
         </div>

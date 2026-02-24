@@ -12,26 +12,39 @@ function Navbar() {
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
-  useEffect(() => setMounted(true), []);
-
-  const goToSkills = () => router.push("/first");
-  const goToProjects = () => router.push("/project");
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!mounted) return null;
 
+  const goToSkills = () => {
+    setIsOpen(false);
+    router.push("/first");
+  };
+
+  const goToProjects = () => {
+    setIsOpen(false);
+    router.push("/project");
+  };
+
   return (
     <>
+      {/* NAVBAR */}
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex justify-between items-center h-16">
+            
+            {/* LOGO */}
             <h1
-              className="text-2xl font-bold text-blue-600 cursor-pointer ml-6 md:ml-24 mt-3"
+              className="text-2xl font-bold text-blue-600 cursor-pointer ml-1 md:ml-12"
               onClick={() => router.push("/")}
             >
               Tanzeel
             </h1>
 
-            <ul className="hidden md:flex items-center space-x-3 font-semibold text-lg gap-7">
+            {/* DESKTOP MENU */}
+            <ul className="hidden md:flex items-center gap-8 font-semibold text-lg">
               <li className="text-gray-700 hover:text-blue-600 transition cursor-pointer">
                 <Link href="/">Home</Link>
               </li>
@@ -40,7 +53,7 @@ function Navbar() {
                 className="text-gray-700 hover:text-blue-600 transition cursor-pointer"
                 onClick={goToSkills}
               >
-                Skill's
+                Skills
               </li>
 
               <li
@@ -53,50 +66,49 @@ function Navbar() {
               <li>
                 <button
                   onClick={() => setShowModal(true)}
-                  className="bg-blue-600 text-white px-3 py-1.5 rounded-md hover:bg-blue-700 transition cursor-pointer"
+                  className="bg-blue-600 cursor-pointer text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
                 >
                   Contact
                 </button>
               </li>
             </ul>
 
+            {/* MOBILE ICON */}
             <div className="md:hidden">
-              <button onClick={() => setIsOpen(!isOpen)}>
+              <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
                 {isOpen ? (
-                  <X size={26} className="text-blue-600 cursor-pointer" />
+                  <X size={26} className="text-blue-600" />
                 ) : (
-                  <Menu size={26} className="text-blue-600 cursor-pointer" />
+                  <Menu size={26} className="text-blue-600" />
                 )}
               </button>
             </div>
           </div>
         </div>
 
+        {/* MOBILE MENU */}
         {isOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 p-8">
-            <ul className="flex flex-col space-y-3 p-4 font-medium">
-              <li className="text-gray-700 hover:text-blue-600 transition cursor-pointer">
+          <div className="md:hidden bg-white border-t border-gray-200 px-6 py-6">
+            <ul className="flex flex-col space-y-4 font-medium">
+              <li
+                className="text-gray-700 hover:text-blue-600 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
                 <Link href="/">Home</Link>
               </li>
 
               <li
-                className="text-gray-700 hover:text-blue-600 transition cursor-pointer"
-                onClick={() => {
-                  setIsOpen(false);
-                  goToSkills();
-                }}
+                className="text-gray-700 hover:text-blue-600 cursor-pointer"
+                onClick={goToSkills}
               >
-                Skill's
+                Skills
               </li>
 
               <li
-                className="text-gray-700 hover:text-blue-600 transition cursor-pointer"
-                onClick={() => {
-                  setIsOpen(false);
-                  goToProjects();
-                }}
+                className="text-gray-700 hover:text-blue-600 cursor-pointer"
+                onClick={goToProjects}
               >
-                Project
+                Projects
               </li>
 
               <li>
@@ -105,7 +117,7 @@ function Navbar() {
                     setIsOpen(false);
                     setShowModal(true);
                   }}
-                  className="bg-blue-600 cursor-pointer mt-2 text-white w-full py-2 rounded-md hover:bg-blue-700 transition"
+                  className="bg-blue-600 cursor-pointer text-white w-full py-2 rounded-md hover:bg-blue-700 transition"
                 >
                   Contact
                 </button>
@@ -115,19 +127,20 @@ function Navbar() {
         )}
       </nav>
 
+      {/* CONTACT MODAL */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg w-80 p-6 text-center">
-            <h2 className="text-xl font-semibold mb-4 text-blue-600 cursor-pointer">
+            <h2 className="text-xl font-semibold mb-4 text-blue-600">
               Contact Me
             </h2>
 
-            <p className="text-gray-700 flex items-center justify-center gap-2 mb-2">
+            <p className="text-gray-700 flex items-center justify-center gap-2 mb-3">
               <MdOutlineEmail className="text-blue-600" />
-              Email: tanzeel0680@gmail.com
+              tanzeel0680@gmail.com
             </p>
 
-            <p className="text-gray-700 flex items-center justify-center gap-2 mb-2">
+            <p className="text-gray-700 flex items-center justify-center gap-2 mb-3">
               <FaLinkedin className="text-blue-700" />
               <a
                 href="https://www.linkedin.com/in/tanzeel-khan-60601b301/"
@@ -139,7 +152,7 @@ function Navbar() {
               </a>
             </p>
 
-            <p className="text-gray-700 flex items-center justify-center gap-2 mb-4">
+            <p className="text-gray-700 flex items-center justify-center gap-2 mb-5">
               <FaGithub className="text-gray-800" />
               <a
                 href="https://github.com/tanzeel-khan1"
@@ -151,14 +164,12 @@ function Navbar() {
               </a>
             </p>
 
-            <div className="mt-2 flex justify-center">
-              <button
-                onClick={() => setShowModal(false)}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
-              >
-                Close
-              </button>
-            </div>
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}

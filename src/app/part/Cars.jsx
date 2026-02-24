@@ -22,10 +22,10 @@ const Cars = () => {
         <div className="p-6 flex flex-col gap-3">
           <h2 className="text-2xl font-bold text-gray-800">Car's Website</h2>
           <p className="text-gray-600 leading-relaxed">
-            This project is a demonstration of a fully responsive{" "}
-            <span className="text-blue-700 font-semibold">UI design</span> — built
-            just for portfolio presentation.
-          </p>
+  This project is a fully responsive portfolio demonstration, featuring
+  smooth animations and thoughtfully integrated icons to enhance user
+  experience and visual clarity.
+</p>
 
           <div className="mt-4 flex justify-between items-center">
             <a
